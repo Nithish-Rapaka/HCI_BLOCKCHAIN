@@ -1,5 +1,4 @@
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 export default function SubjectPage() {
   const { type } = useParams();
