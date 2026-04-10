@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-600 via-pink-500 to-indigo-500">
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-600 via-pink-500 to-indigo-500">
         {/* ✅ NAVBAR */}
         <Navbar />
 

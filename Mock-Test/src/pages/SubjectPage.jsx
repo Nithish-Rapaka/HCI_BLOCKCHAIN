@@ -7,8 +7,6 @@ export default function SubjectPage() {
 
   return (
     <>
-      <Navbar />
-
       <div className="p-4 min-h-screen bg-gray-100">
         <h1 className="text-2xl font-bold text-center mb-4">
           Select Week ({type})

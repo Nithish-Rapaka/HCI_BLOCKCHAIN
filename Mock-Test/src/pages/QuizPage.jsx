@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { blockchain, hci } from "../data/data.js";
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../components/Navbar";
 import QuestionCard from "../components/QuestionCard";
 
 export default function QuizPage() {
@@ -31,7 +30,6 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [views, setViews] = useState(0);
 
   // ===== FIX DOUBLE VIEW ISSUE =====
   const hasRun = useRef(false);
@@ -46,7 +44,6 @@ export default function QuizPage() {
     v = parseInt(v) + 1;
 
     localStorage.setItem("views", v);
-    setViews(v);
   }, []);
 
   // ===== SUBMIT LOGIC =====
