@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import SubjectPage from "./pages/SubjectPage";
 import QuizPage from "./pages/QuizPage";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 
 export default function App() {
   return (
