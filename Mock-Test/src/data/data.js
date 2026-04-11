@@ -102,7 +102,7 @@ hci[1] = [
       "Reduce data usage",
       "Teach programming",
     ],
-    answer: "Make interaction effective, efficient, and satisfying",
+    answer: [1],
   },
   {
     q: "Which example represents bad design?",
@@ -112,7 +112,7 @@ hci[1] = [
       "A phone with customizable themes",
       "A book with a table of contents",
     ],
-    answer: "A TV remote with too many buttons",
+    answer: [1],
   },
   {
     q: "Usability mainly describes:",
@@ -122,7 +122,7 @@ hci[1] = [
       "Internet speed",
       "Type of hardware",
     ],
-    answer: "How easily users achieve their goals",
+    answer: [1],
   },
   {
     q: "Which of the following is an interactive system?",
@@ -132,7 +132,7 @@ hci[1] = [
       "Wall poster",
       "Paper calendar",
     ],
-    answer: "Digital ATM touch interface",
+    answer: [1],
   },
   {
     q: "Why is understanding user needs important in user-centered design?",
@@ -142,7 +142,7 @@ hci[1] = [
       "To create fancy animations",
       "To increase marketing budget",
     ],
-    answer: "To match designs with real user behaviors",
+    answer: [1],
   },
   {
     q: "Why is a door without signifiers (push/pull marks) confusing?",
@@ -152,7 +152,7 @@ hci[1] = [
       "Its affordance and signifiers are unclear",
       "It is automatic",
     ],
-    answer: "Its affordance and signifiers are unclear",
+    answer: [2],
   },
   {
     q: "What makes a TV remote with many buttons a poor design example?",
@@ -162,12 +162,12 @@ hci[1] = [
       "Cognitive overload and poor usability",
       "It is not colorful",
     ],
-    answer: "Cognitive overload and poor usability",
+    answer: [2],
   },
   {
     q: "Which step in user-centered design involves understanding user challenges and context?",
     options: ["Advertising", "Deployment", "User research", "Coding"],
-    answer: "User research",
+    answer: [2],
   },
   {
     q: "Which HCI principle was violated in the Boeing 737 MAX case?",
@@ -177,7 +177,7 @@ hci[1] = [
       "Lack of visibility and poor feedback for automation",
       "Icons were too small",
     ],
-    answer: "Lack of visibility and poor feedback for automation",
+    answer: [2],
   },
   {
     q: "Which concept explains why users make errors when controls do not match their mental model?",
@@ -187,7 +187,7 @@ hci[1] = [
       "Mental models and signifiers",
       "Download speed",
     ],
-    answer: "Mental models and signifiers",
+    answer: [2],
   },
 ];
 
@@ -296,8 +296,7 @@ hci[2] = [
       "When the product is inexpensive",
       "When the product looks stylish",
     ],
-    answer:
-      "When users feel comfortable and can use the product without friction",
+    answer: [1],
   },
   {
     q: "What was a major reason for the commercial failure of Google Glass?",
@@ -307,7 +306,7 @@ hci[2] = [
       "Low screen brightness",
       "Lack of wireless connectivity",
     ],
-    answer: "Privacy concerns and awkward design",
+    answer: [1],
   },
   {
     q: "What is the first step in deciding what to design?",
@@ -317,7 +316,7 @@ hci[2] = [
       "Choosing color schemes",
       "Deciding the marketing plan",
     ],
-    answer: "Identifying who the users are",
+    answer: [1],
   },
   {
     q: "What is the main goal of interaction design according to Sharp, Rogers, and Preece?",
@@ -327,7 +326,7 @@ hci[2] = [
       "Increasing screen brightness",
       "Designing for entertainment",
     ],
-    answer: "Supporting communication and interaction in daily life",
+    answer: [0],
   },
   {
     q: "Which of the following best represents User Experience (UX)?",
@@ -337,7 +336,7 @@ hci[2] = [
       "Only the visual layout",
       "The number of features in an app",
     ],
-    answer: "How users feel emotionally while using the product",
+    answer: [0],
   },
   {
     q: "Why are multidisciplinary teams valuable in interaction design?",
@@ -347,7 +346,7 @@ hci[2] = [
       "They generate diverse ideas and perspectives",
       "They eliminate the need for user testing",
     ],
-    answer: "They generate diverse ideas and perspectives",
+    answer: [2],
   },
   {
     q: "What is inclusivity in design?",
@@ -357,7 +356,7 @@ hci[2] = [
       "Removing advanced features",
       "Designing only for expert users",
     ],
-    answer: "Designing products for diverse user needs and backgrounds",
+    answer: [1],
   },
   {
     q: "What is accessibility mainly focused on?",
@@ -367,12 +366,12 @@ hci[2] = [
       "Making products usable by people with disabilities",
       "Reducing UI animations",
     ],
-    answer: "Making products usable by people with disabilities",
+    answer: [2],
   },
   {
     q: "Which design principle ensures that crucial functions are easy to locate?",
     options: ["Memorability", "Flexibility", "Aesthetics", "Visibility"],
-    answer: "Visibility",
+    answer: [3],
   },
   {
     q: "What is affordance in design?",
@@ -382,7 +381,7 @@ hci[2] = [
       "The brand reputation",
       "The color contrast ratio",
     ],
-    answer: "Visual cues that indicate how an element should be used",
+    answer: [1],
   },
 ];
 
@@ -476,7 +475,7 @@ hci[3] = [
   {
     q: "Which stage of Design Thinking focuses on understanding the user's needs and behaviors?",
     options: ["Prototype", "Empathize", "Test", "Implement"],
-    answer: "Empathize",
+    answer: [1],
   },
   {
     q: "The Double Diamond design process was developed by:",
@@ -486,12 +485,12 @@ hci[3] = [
       "UK Design Council",
       "Microsoft Research",
     ],
-    answer: "UK Design Council",
+    answer: [2],
   },
   {
     q: "Which of the following is not one of the six stages of Design Thinking?",
     options: ["Define", "Ideate", "Evaluate", "Empathize"],
-    answer: "Evaluate",
+    answer: [2],
   },
   {
     q: "In the Define stage, the key goal is to:",
@@ -501,7 +500,7 @@ hci[3] = [
       "Conduct A/B testing",
       "Create high-fidelity prototypes",
     ],
-    answer: "Frame the problem clearly",
+    answer: [1],
   },
   {
     q: "Activity-centered design primarily focuses on:",
@@ -511,12 +510,12 @@ hci[3] = [
       "Tasks and activities users perform",
       "Visual layout aesthetics",
     ],
-    answer: "Tasks and activities users perform",
+    answer: [2],
   },
   {
     q: "Which of the following is not a key component of system design?",
     options: ["Data Management", "Interfaces", "Memory recall", "Architecture"],
-    answer: "Memory recall",
+    answer: [2],
   },
   {
     q: "The Interaction Design Process emphasizes four basic activities. Which one of these is included?",
@@ -526,7 +525,7 @@ hci[3] = [
       "Branding",
       "Advertising",
     ],
-    answer: "Discovering requirements",
+    answer: [1],
   },
   {
     q: "Genius design relies heavily on:",
@@ -536,7 +535,7 @@ hci[3] = [
       "Market surveys",
       "Accessibility guidelines",
     ],
-    answer: "Designer intuition and expertise",
+    answer: [1],
   },
   {
     q: "Which lifecycle model is based on rapid prototyping and iteration within 5 days?",
@@ -546,7 +545,7 @@ hci[3] = [
       "Google Design Sprints",
       "Spiral Model",
     ],
-    answer: "Google Design Sprints",
+    answer: [2],
   },
   {
     q: "According to Week 3, user involvement is important because:",
@@ -556,7 +555,7 @@ hci[3] = [
       "It speeds up coding",
       "It avoids the need for iteration",
     ],
-    answer: "Users can become stakeholders and contribute feedback",
+    answer: [1],
   },
 ];
 // ================= BLOCKCHAIN - WEEK 4 =================
@@ -675,7 +674,7 @@ hci[4] = [
       "How designers communicate with developers",
       "Only system requirements",
     ],
-    answer: "How users perceive and interact with technology",
+    answer: [1],
   },
   {
     q: "Which of the following is an example of accessibility consideration?",
@@ -685,7 +684,7 @@ hci[4] = [
       "Adding decorative animations",
       "Increasing advertisements",
     ],
-    answer: "Providing adjustable font sizes and dyslexia-friendly modes",
+    answer: [1],
   },
   {
     q: "Novice users generally prefer:",
@@ -695,7 +694,7 @@ hci[4] = [
       "Minimal guidance and advanced shortcuts",
       "Simple interfaces with clear instructions",
     ],
-    answer: "Simple interfaces with clear instructions",
+    answer: [3],
   },
   {
     q: "A persona is best described as:",
@@ -705,7 +704,7 @@ hci[4] = [
       "A system architecture model",
       "A marketing campaign tool",
     ],
-    answer: "A fictional, data-driven representation of a user",
+    answer: [1],
   },
   {
     q: "Surveys in user research are useful because they:",
@@ -715,7 +714,7 @@ hci[4] = [
       "Guarantee unbiased answers",
       "Replace interviews completely",
     ],
-    answer: "Allow quick collection of large-scale data",
+    answer: [1],
   },
   {
     q: "Empathy mapping categorizes insights into:",
@@ -725,7 +724,7 @@ hci[4] = [
       "Inputs, outputs, processes, storage",
       "Goals, sub-goals, errors, feedback",
     ],
-    answer: "Says, Thinks, Does, Feels",
+    answer: [1],
   },
   {
     q: "A common challenge in user perspectives is:",
@@ -735,7 +734,7 @@ hci[4] = [
       "Unlimited research time",
       "Lack of design tools",
     ],
-    answer: "Conflicting needs among different user groups",
+    answer: [1],
   },
   {
     q: "Affinity mapping is mainly used to:",
@@ -745,7 +744,7 @@ hci[4] = [
       "Remove unnecessary system features",
       "Design UI wireframes",
     ],
-    answer: "Organize qualitative data into themes",
+    answer: [1],
   },
   {
     q: "A POV (Point of View) statement includes:",
@@ -755,7 +754,7 @@ hci[4] = [
       "UI color preferences",
       "Coding-level issues",
     ],
-    answer: "User, need, and insight",
+    answer: [1],
   },
   {
     q: "Data clustering helps in:",
@@ -765,7 +764,7 @@ hci[4] = [
       "Increasing device performance",
       "Removing prototypes",
     ],
-    answer: "Grouping users based on similar behaviors",
+    answer: [0],
   },
 ];
 // ================= BLOCKCHAIN - WEEK 5 =================
@@ -879,7 +878,7 @@ hci[5] = [
       "A list of system requirements",
       "A coding guideline document",
     ],
-    answer: "A mental representation of how a system works",
+    answer: [1],
   },
   {
     q: "What is an example of an assumption in interface design?",
@@ -889,7 +888,7 @@ hci[5] = [
       "Mapping user journeys",
       "Writing code before wireframes",
     ],
-    answer: "Taking something for granted without evidence",
+    answer: [1],
   },
   {
     q: "Which component is commonly used in online shopping conceptual models?",
@@ -899,7 +898,7 @@ hci[5] = [
       "Video playback controls",
       "Battery indicator",
     ],
-    answer: "Shopping cart",
+    answer: [1],
   },
   {
     q: "Interface metaphors help users by:",
@@ -909,7 +908,7 @@ hci[5] = [
       "Leveraging familiarity for learning new systems",
       "Removing the need for feedback",
     ],
-    answer: "Leveraging familiarity for learning new systems",
+    answer: [2],
   },
   {
     q: "Which cognitive principle states that decision time increases with more choices?",
@@ -919,7 +918,7 @@ hci[5] = [
       "Hick's Law",
       "Gestalt Law of Proximity",
     ],
-    answer: "Hick's Law",
+    answer: [2],
   },
   {
     q: "What is the purpose of a system image?",
@@ -929,7 +928,7 @@ hci[5] = [
       "To explain marketing strategy",
       "To define business revenue",
     ],
-    answer: "To show how the system actually works through the interface",
+    answer: [1],
   },
   {
     q: "Which of the following is a drawback of interface metaphors?",
@@ -939,7 +938,7 @@ hci[5] = [
       "They may limit designers' creativity",
       "They remove the need for conceptual models",
     ],
-    answer: "They may limit designers' creativity",
+    answer: [2],
   },
   {
     q: "Cognitive load increases when:",
@@ -949,7 +948,7 @@ hci[5] = [
       "Steps are minimized",
       "Icons are consistent",
     ],
-    answer: "Users see excessive irrelevant information",
+    answer: [1],
   },
   {
     q: "Which cognitive aspect focuses on how users perceive visual elements?",
@@ -959,7 +958,7 @@ hci[5] = [
       "Problem-solving",
       "Reflective cognition",
     ],
-    answer: "Perception",
+    answer: [1],
   },
   {
     q: "Which emerging trend in interfaces directly uses the human brain for input?",
@@ -969,7 +968,7 @@ hci[5] = [
       "Brain–Computer Interfaces",
       "Card-based UI",
     ],
-    answer: "Brain–Computer Interfaces",
+    answer: [2],
   },
 ];
 
@@ -1084,13 +1083,12 @@ hci[6] = [
       "To reduce memory usage in applications",
       "To choose programming languages",
     ],
-    answer:
-      "To determine what information is needed to inform design decisions",
+    answer: [1],
   },
   {
     q: "Which type of data includes demographics and user preferences?",
     options: ["System data", "User data", "Context data", "Task data"],
-    answer: "User data",
+    answer: [1],
   },
   {
     q: "Which of the following is a qualitative data-gathering technique?",
@@ -1100,7 +1098,7 @@ hci[6] = [
       "User interviews",
       "System performance metrics",
     ],
-    answer: "User interviews",
+    answer: [2],
   },
   {
     q: "Crowdsourcing in HCI is mainly beneficial because:",
@@ -1110,7 +1108,7 @@ hci[6] = [
       "It guarantees unbiased data automatically",
       "It eliminates qualitative research",
     ],
-    answer: "It gathers data from diverse and large populations",
+    answer: [1],
   },
   {
     q: "Fairness in data collection ensures that:",
@@ -1120,7 +1118,7 @@ hci[6] = [
       "Participants cannot withdraw",
       "Only expert users are included",
     ],
-    answer: "All users are treated equitably in data and algorithms",
+    answer: [0],
   },
   {
     q: "Field studies involve:",
@@ -1130,12 +1128,12 @@ hci[6] = [
       "Observing users in their natural environment",
       "Removing outliers from datasets",
     ],
-    answer: "Observing users in their natural environment",
+    answer: [2],
   },
   {
     q: "Which tool is commonly used for real-time data handling?",
     options: ["Tableau", "Firebase", "NVivo", "SPSS"],
-    answer: "Firebase",
+    answer: [1],
   },
   {
     q: "Which of the following is a key issue in data ethics?",
@@ -1145,7 +1143,7 @@ hci[6] = [
       "Transparency in how data is collected and used",
       "Adding more user features",
     ],
-    answer: "Transparency in how data is collected and used",
+    answer: [2],
   },
   {
     q: "Inter-Annotator Agreement (IAA) is used to:",
@@ -1155,7 +1153,7 @@ hci[6] = [
       "Improve system performance",
       "Replace manual labeling",
     ],
-    answer: "Measure consistency among multiple annotators",
+    answer: [1],
   },
   {
     q: "Which statistical method is used to find relationships between variables?",
@@ -1165,7 +1163,7 @@ hci[6] = [
       "Unstructured interviewing",
       "Card sorting",
     ],
-    answer: "Regression analysis",
+    answer: [1],
   },
 ];
 
@@ -1285,7 +1283,7 @@ hci[7] = [
       "Only a software demo",
       "A marketing document",
     ],
-    answer: "A manifestation of a design that stakeholders can interact with",
+    answer: [1],
   },
   {
     q: "Which of the following is an example of Lo-Fi prototyping?",
@@ -1295,7 +1293,7 @@ hci[7] = [
       "Fully interactive app",
       "High-resolution mockup",
     ],
-    answer: "Paper sketches",
+    answer: [1],
   },
   {
     q: "Storyboards in prototyping help designers by:",
@@ -1305,12 +1303,12 @@ hci[7] = [
       "Generating analytics",
       "Creating animations for UI",
     ],
-    answer: "Breaking user tasks into scenes to visualize interaction",
+    answer: [1],
   },
   {
     q: "Which prototyping type provides broad coverage with low detail?",
     options: ["Vertical", "Horizontal", "Hi-Fi", "Wizard-of-Oz"],
-    answer: "Horizontal",
+    answer: [1],
   },
   {
     q: "Mid-Fidelity prototypes typically include:",
@@ -1320,7 +1318,7 @@ hci[7] = [
       "Pixel-perfect color UI",
       "Final design animations",
     ],
-    answer: "Grayscale wireframes with limited interactions",
+    answer: [1],
   },
   {
     q: "Smart UI refers to interfaces that:",
@@ -1330,7 +1328,7 @@ hci[7] = [
       "Do not require user data",
       "Never personalize content",
     ],
-    answer: "Use AI to adapt to user behavior and context",
+    answer: [1],
   },
   {
     q: "Which is an advantage of Smart UI?",
@@ -1340,7 +1338,7 @@ hci[7] = [
       "Increased manual effort for users",
       "No support for accessibility",
     ],
-    answer: "Personalized and adaptive user experience",
+    answer: [1],
   },
   {
     q: "Wizard-of-Oz prototyping involves:",
@@ -1350,7 +1348,7 @@ hci[7] = [
       "Physical hardware testing",
       "Running A/B experiments",
     ],
-    answer: "A human simulating system responses behind the scenes",
+    answer: [0],
   },
   {
     q: "Vertical prototyping focuses on:",
@@ -1360,12 +1358,12 @@ hci[7] = [
       "Creating only animations",
       "Testing final UI only",
     ],
-    answer: "A detailed exploration of a single feature",
+    answer: [1],
   },
   {
     q: "Which tool is commonly used for mid or high-fidelity UI prototypes?",
     options: ["Sticky notes", "Figma", "Lego blocks", "Scenarios only"],
-    answer: "Figma",
+    answer: [1],
   },
 ];
 
@@ -1484,12 +1482,12 @@ hci[8] = [
       "To test marketing strategies",
       "To reduce development cost",
     ],
-    answer: "To assess usability, effectiveness, and user experience",
+    answer: [1],
   },
   {
     q: "Which type of evaluation occurs during the design process to refine the product?",
     options: ["Summative", "Diagnostic", "Formative", "Longitudinal"],
-    answer: "Formative",
+    answer: [2],
   },
   {
     q: "Usability testing primarily involves:",
@@ -1499,7 +1497,7 @@ hci[8] = [
       "Only collecting analytics",
       "Replacing prototypes with final UI",
     ],
-    answer: "Observing real users performing tasks",
+    answer: [1],
   },
   {
     q: "Which evaluation method requires evaluators to simulate user behavior step-by-step?",
@@ -1509,7 +1507,7 @@ hci[8] = [
       "A/B Testing",
       "Eye Tracking",
     ],
-    answer: "Cognitive Walkthrough",
+    answer: [1],
   },
   {
     q: "In experiment design, which approach assigns different groups to different conditions?",
@@ -1519,7 +1517,7 @@ hci[8] = [
       "Between-subjects",
       "Triangulated testing",
     ],
-    answer: "Between-subjects",
+    answer: [2],
   },
   {
     q: "Which metric measures how fast users complete a task?",
@@ -1529,7 +1527,7 @@ hci[8] = [
       "Time on task",
       "Net Promoter Score",
     ],
-    answer: "Time on task",
+    answer: [2],
   },
   {
     q: "Eye tracking helps evaluators understand:",
@@ -1539,7 +1537,7 @@ hci[8] = [
       "User emotions only",
       "The number of app downloads",
     ],
-    answer: "Where users focus attention on the interface",
+    answer: [1],
   },
   {
     q: "Which principle ensures that participants voluntarily agree to evaluation?",
@@ -1549,7 +1547,7 @@ hci[8] = [
       "Aesthetic consistency",
       "Reliability",
     ],
-    answer: "Informed consent",
+    answer: [1],
   },
   {
     q: "Which evaluation method is cost-effective and identifies issues early using established principles?",
@@ -1559,7 +1557,7 @@ hci[8] = [
       "Biometric Metrics",
       "Field Studies",
     ],
-    answer: "Heuristic Evaluation",
+    answer: [1],
   },
   {
     q: "Which predictive model estimates pointing time based on movement distance and target size?",
@@ -1569,7 +1567,7 @@ hci[8] = [
       "Cognitive Load Theory",
       "Fitts's Law",
     ],
-    answer: "Fitts's Law",
+    answer: [3],
   },
 ];
 
@@ -1689,7 +1687,7 @@ hci[9] = [
       "Tools without any automation",
       "Only entertainment systems",
     ],
-    answer: "A network of physical objects with sensors and connectivity",
+    answer: [0],
   },
   {
     q: "The main goal of IoT is:",
@@ -1699,7 +1697,7 @@ hci[9] = [
       "To remove automation from homes",
       "To limit wireless technology",
     ],
-    answer: 'To "connect the unconnected"',
+    answer: [1],
   },
   {
     q: "Which example shows HCI + IoT interaction?",
@@ -1709,7 +1707,7 @@ hci[9] = [
       "Devices interacting only through printed manuals",
       "A non-digital clock",
     ],
-    answer: "Users controlling smart bulbs via a mobile app",
+    answer: [1],
   },
   {
     q: "Which interaction modalities are common in IoT?",
@@ -1719,7 +1717,7 @@ hci[9] = [
       "Only QR-code scanning",
       "Only mechanical switches",
     ],
-    answer: "Voice, gesture, and touch",
+    answer: [0],
   },
   {
     q: "A major HCI challenge in IoT is:",
@@ -1729,7 +1727,7 @@ hci[9] = [
       "Ensuring devices always remain offline",
       "Removing all system notifications",
     ],
-    answer: "Achieving consistent interaction across many devices",
+    answer: [1],
   },
   {
     q: "Why is HCI crucial in IoT systems?",
@@ -1739,7 +1737,7 @@ hci[9] = [
       "It prevents real-time interaction",
       "It forces users to follow only one workflow",
     ],
-    answer: "It ensures usability and intuitive interaction across devices",
+    answer: [1],
   },
   {
     q: "HaptiDrag creates friction using:",
@@ -1749,7 +1747,7 @@ hci[9] = [
       "Electroadhesion technology",
       "Physical wheels",
     ],
-    answer: "Electroadhesion technology",
+    answer: [2],
   },
   {
     q: "HaptiDrag enhances VR by:",
@@ -1759,7 +1757,7 @@ hci[9] = [
       "Reducing VR stability",
       "Removing all gestures",
     ],
-    answer: "Giving realistic tactile feedback with variable friction",
+    answer: [0],
   },
   {
     q: "MobiTangibles supports VR tool training by:",
@@ -1769,7 +1767,7 @@ hci[9] = [
       "Removing all sensors",
       "Replacing tools with QR codes",
     ],
-    answer: "Tracking small tool movements using smartphone magnetometers",
+    answer: [0],
   },
   {
     q: "A limitation of MobiTangibles is:",
@@ -1779,7 +1777,7 @@ hci[9] = [
       "It needs no smartphone",
       "It cannot detect small magnets at close range",
     ],
-    answer: "It may damage magnetic-sensitive objects like credit cards",
+    answer: [1],
   },
 ];
 
@@ -1899,7 +1897,7 @@ hci[10] = [
       "Compress multimedia files",
       "Control robotic hardware",
     ],
-    answer: "Predict and generate language using large-scale training data",
+    answer: [0],
   },
   {
     q: "Which of the following is an example of a multimodal input for an AI system?",
@@ -1909,7 +1907,7 @@ hci[10] = [
       "A Wi-Fi password",
       "A device serial number",
     ],
-    answer: "Text, image, or audio combined",
+    answer: [1],
   },
   {
     q: "What is the function of prompting in LLM interactions?",
@@ -1919,7 +1917,7 @@ hci[10] = [
       "Measuring CPU temperature",
       "Optimizing internet bandwidth",
     ],
-    answer: "Giving the model instructions or context to perform a task",
+    answer: [1],
   },
   {
     q: "Which is a key challenge in AI-based personalization?",
@@ -1929,7 +1927,7 @@ hci[10] = [
       "High-fidelity UI design",
       "Lack of color contrast in icons",
     ],
-    answer: "Privacy concerns around user data",
+    answer: [1],
   },
   {
     q: 'In behavior modeling, "Effect" refers to:',
@@ -1939,7 +1937,7 @@ hci[10] = [
       "The predicted CPU usage",
       "The system's refresh rate",
     ],
-    answer: "The user's actual response or action",
+    answer: [1],
   },
   {
     q: "Zero-shot prompting allows the model to:",
@@ -1949,7 +1947,7 @@ hci[10] = [
       "Access private user data",
       "Train without GPUs",
     ],
-    answer: "Produce outputs without being given examples",
+    answer: [0],
   },
   {
     q: "Which of these is a benefit of AI for accessibility?",
@@ -1959,7 +1957,7 @@ hci[10] = [
       "Higher download speeds",
       "Larger app icons",
     ],
-    answer: "Real-time speech-to-text for deaf users",
+    answer: [1],
   },
   {
     q: "Behavior-optimized content refers to:",
@@ -1969,7 +1967,7 @@ hci[10] = [
       "Images compressed for mobile phones",
       "Deleted browsing history",
     ],
-    answer: "Messages crafted to trigger specific user reactions",
+    answer: [0],
   },
   {
     q: "Ethical concerns with LLMs include:",
@@ -1979,7 +1977,7 @@ hci[10] = [
       "Slow Wi-Fi speed",
       "File naming conventions",
     ],
-    answer: "Bias, manipulation risk, and misinformation",
+    answer: [1],
   },
   {
     q: "An MLLM (Multimodal Large Language Model) improves HCI by:",
@@ -1989,7 +1987,7 @@ hci[10] = [
       "Removing the need for interfaces",
       "Turning apps into offline-only tools",
     ],
-    answer: "Understanding and generating across multiple input/output formats",
+    answer: [0],
   },
 ];
 
@@ -2104,7 +2102,7 @@ hci[11] = [
       "Removing encryption from messages",
       "Designing only visual elements",
     ],
-    answer: "Users' ability to control their personal data",
+    answer: [0],
   },
   {
     q: "Which of the following is an example of a security feature?",
@@ -2114,7 +2112,7 @@ hci[11] = [
       "Changing wallpapers",
       "Offline advertisements",
     ],
-    answer: "Two-factor authentication (2FA)",
+    answer: [1],
   },
   {
     q: "Deepfakes are created using:",
@@ -2124,7 +2122,7 @@ hci[11] = [
       "Static HTML tags",
       "Audio compression tools",
     ],
-    answer: "Generative Adversarial Networks (GANs)",
+    answer: [0],
   },
   {
     q: "Which type of harm involves AI generating biased or unfair outcomes?",
@@ -2134,7 +2132,7 @@ hci[11] = [
       "Reduced display brightness",
       "Slow keyboard response",
     ],
-    answer: "Bias and discrimination",
+    answer: [0],
   },
   {
     q: "A real-world example of privacy by design is:",
@@ -2144,7 +2142,7 @@ hci[11] = [
       "Auto-rotate screen settings",
       "File naming conventions",
     ],
-    answer: "WhatsApp's end-to-end encryption",
+    answer: [0],
   },
   {
     q: "One major risk of deepfakes is:",
@@ -2154,7 +2152,7 @@ hci[11] = [
       "Faster battery charging",
       "Removing the need for passwords",
     ],
-    answer: "Creating propaganda or misinformation",
+    answer: [0],
   },
   {
     q: "Security in HCI focuses on:",
@@ -2164,7 +2162,7 @@ hci[11] = [
       "Designing only for children",
       "Removing all login screens",
     ],
-    answer: "Protecting user data from unauthorized access",
+    answer: [0],
   },
   {
     q: "GDPR impacts HCI design by requiring:",
@@ -2174,7 +2172,7 @@ hci[11] = [
       "Mandatory dark mode",
       "Faster loading animations",
     ],
-    answer: "Clear consent mechanisms and privacy transparency",
+    answer: [0],
   },
   {
     q: "Which tool supports secure authentication?",
@@ -2184,7 +2182,7 @@ hci[11] = [
       "Video filters",
       "Calculator app",
     ],
-    answer: "Google Authenticator",
+    answer: [0],
   },
   {
     q: "A major challenge in privacy & security design is:",
@@ -2194,6 +2192,6 @@ hci[11] = [
       "Hiding all system messages",
       "Making interfaces more confusing",
     ],
-    answer: "Balancing usability with strong protections",
+    answer: [0],
   },
 ];

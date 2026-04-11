@@ -1,10 +1,11 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { blockchain, hci } from "../data/data.js";
 import { useState, useEffect, useRef } from "react";
 import QuestionCard from "../components/QuestionCard";
 
 export default function QuizPage() {
   const { state } = useLocation();
+  const nav = useNavigate();
   const { type, week, random } = state;
 
   let data = [];
@@ -74,7 +75,7 @@ export default function QuizPage() {
   return (
     <>
       {/* 🔥 QUESTION PALETTE */}
-      <div className="flex flex-wrap gap-2 mb-4 justify-center">
+      <div className="flex flex-wrap gap-3 mb-6 justify-center">
         {data.map((_, i) => {
           const isAnswered = answers[i] && answers[i].length > 0;
 
@@ -82,17 +83,16 @@ export default function QuizPage() {
             <div
               key={i}
               onClick={() => setIndex(i)} // jump to question
-              className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer text-white font-semibold
-          ${isAnswered ? "bg-green-500" : "bg-red-500"}
-          ${index === i ? "ring-4 ring-blue-300" : ""}
-        `}
+              className={`w-12 h-12 flex items-center justify-center rounded-full cursor-pointer text-white font-bold shadow-lg hover:scale-110 transition-all duration-200
+          ${isAnswered ? "bg-green-500 hover:bg-green-600" : "bg-slate-600 hover:bg-slate-500"}
+          ${index === i ? "ring-4 ring-purple-400 scale-110" : ""}`}
             >
               {i + 1}
             </div>
           );
         })}
       </div>
-      <div className="p-4 min-h-screen bg-gray-100 flex flex-col">
+      <div className="p-6 bg-slate-800 rounded-2xl flex flex-col">
         {/* QUESTION */}
         <QuestionCard
           q={data[index]}
@@ -101,29 +101,28 @@ export default function QuizPage() {
           setAnswers={setAnswers}
           submitted={submitted}
         />
-        {/* NAV BUTTONS */}
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between mt-8">
           <button
             disabled={index === 0}
             onClick={() => setIndex(index - 1)}
-            className="bg-gray-400 text-white px-4 py-2 rounded"
+            className="bg-slate-600 hover:bg-slate-700 disabled:bg-slate-800 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200"
           >
-            Prev
+            ← Previous
           </button>
 
           {index === data.length - 1 ? (
             <button
               onClick={handleSubmit}
-              className="bg-green-600 text-white px-4 py-2 rounded"
+              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-200"
             >
-              Submit
+              🎯 Submit Quiz
             </button>
           ) : (
             <button
               onClick={() => setIndex(index + 1)}
-              className="bg-indigo-600 text-white px-4 py-2 rounded"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
             >
-              Next
+              Next →
             </button>
           )}
         </div>
@@ -137,10 +136,44 @@ export default function QuizPage() {
 
         {/* RESULT */}
         {submitted && (
-          <div className="mt-6 bg-white p-4 rounded shadow text-center">
-            <h2 className="text-xl font-bold">
+          <div className="mt-6 bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-slate-700">
+            <h2 className="text-2xl font-bold text-center text-white mb-4">
               🎉 Score: {score} / {data.length}
             </h2>
+            <p className="text-center text-slate-300 mb-6">
+              {score === data.length
+                ? "Perfect! 🏆"
+                : score >= data.length * 0.7
+                  ? "Great job! 👏"
+                  : "Keep practicing! 💪"}
+            </p>
+
+            {/* NEXT QUIZ OPTIONS */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-center text-white mb-4">
+                Ready for another quiz?
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  onClick={() => nav("/subject/blockchain")}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  🔗 Blockchain Quiz
+                </button>
+                <button
+                  onClick={() => nav("/subject/hci")}
+                  className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  🧠 HCI Quiz
+                </button>
+              </div>
+              <button
+                onClick={() => nav("/")}
+                className="w-full bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                🏠 Back to Home
+              </button>
+            </div>
           </div>
         )}
       </div>
