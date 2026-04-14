@@ -12,7 +12,7 @@ export default function SubjectPage() {
         </h1>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {[...Array(11)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <button
               key={i}
               onClick={() => nav("/quiz", { state: { type, week: i + 1 } })}
@@ -21,6 +21,13 @@ export default function SubjectPage() {
               Week {i + 1}
             </button>
           ))}
+
+          <button
+            onClick={() => nav("/quiz", { state: { type, week: "all" } })}
+            className="bg-gradient-to-r from-pink-600 to-red-600 hover:from-pink-700 hover:to-red-700 text-white p-4 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
+          >
+            All Weeks
+          </button>
         </div>
 
         {/* FINAL MOCK */}
@@ -29,7 +36,7 @@ export default function SubjectPage() {
             🎯 Final Mock Test
           </h2>
 
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             {[10, 20, 50].map((n) => (
               <button
                 key={n}
@@ -39,6 +46,13 @@ export default function SubjectPage() {
                 {n} Questions
               </button>
             ))}
+
+            <button
+              onClick={() => nav("/quiz", { state: { type, week: "all" } })}
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 font-semibold"
+            >
+              Grand Test
+            </button>
           </div>
         </div>
       </div>

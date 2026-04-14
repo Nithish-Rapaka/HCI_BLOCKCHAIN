@@ -1,30 +1,45 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { blockchain, hci } from "../data/data.js";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import QuestionCard from "../components/QuestionCard";
 
 export default function QuizPage() {
   const { state } = useLocation();
   const nav = useNavigate();
-  const { type, week, random } = state;
+  const { type, week, random } = state || {};
 
-  let data = [];
+  const data = useMemo(() => {
+    const getAllQuestions = (source) => Object.values(source).flat();
+    const allBlockchain = getAllQuestions(blockchain);
+    const allHci = getAllQuestions(hci);
 
-  // ===== DATA SELECTION =====
-  if (random) {
-    let all = [];
+    if (random) {
+      const count = Number(random) || 0;
+      const all =
+        type === "blockchain"
+          ? allBlockchain
+          : type === "hci"
+            ? allHci
+            : [...allBlockchain, ...allHci];
 
-    if (type === "blockchain") all = Object.values(blockchain).flat();
-    else if (type === "hci") all = Object.values(hci).flat();
-    else
-      all = [...Object.values(blockchain).flat(), ...Object.values(hci).flat()];
+      return [...all].sort(() => 0.5 - Math.random()).slice(0, count);
+    }
 
-    data = all.sort(() => 0.5 - Math.random()).slice(0, random);
-  } else {
-    if (type === "blockchain") data = blockchain[week];
-    if (type === "hci") data = hci[week];
-    if (type === "both") data = [...blockchain[week], ...hci[week]];
-  }
+    if (week === "all") {
+      return type === "blockchain"
+        ? allBlockchain
+        : type === "hci"
+          ? allHci
+          : [...allBlockchain, ...allHci];
+    }
+
+    if (type === "blockchain") return blockchain[week] || [];
+    if (type === "hci") return hci[week] || [];
+    if (type === "both")
+      return [...(blockchain[week] || []), ...(hci[week] || [])];
+
+    return [];
+  }, [type, week, random]);
 
   // ===== STATES =====
   const [index, setIndex] = useState(0);
@@ -46,6 +61,27 @@ export default function QuizPage() {
 
     localStorage.setItem("views", v);
   }, []);
+
+  useEffect(() => {
+    if (!state || !type) {
+      nav("/");
+    }
+  }, [nav, state, type]);
+
+  const quizLabel = useMemo(() => {
+    const typeLabel =
+      type === "blockchain"
+        ? "Blockchain"
+        : type === "hci"
+          ? "HCI"
+          : type === "both"
+            ? "Combined"
+            : "Quiz";
+
+    if (random) return `${typeLabel} - ${random} Random Questions`;
+    if (week === "all") return `${typeLabel} - Grand Test (All Weeks)`;
+    return `${typeLabel} - Week ${week}`;
+  }, [type, week, random]);
 
   // ===== SUBMIT LOGIC =====
   const handleSubmit = () => {
@@ -74,6 +110,13 @@ export default function QuizPage() {
 
   return (
     <>
+      <div className="mb-6 text-center">
+        <h1 className="text-3xl font-bold text-white mb-2">{quizLabel}</h1>
+        <p className="text-slate-300">
+          Answer the questions below and use Next to move forward.
+        </p>
+      </div>
+
       {/* 🔥 QUESTION PALETTE */}
       <div className="flex flex-wrap gap-3 mb-6 justify-center">
         {data.map((_, i) => {
@@ -94,13 +137,20 @@ export default function QuizPage() {
       </div>
       <div className="p-6 bg-slate-800 rounded-2xl flex flex-col">
         {/* QUESTION */}
-        <QuestionCard
-          q={data[index]}
-          index={index}
-          selected={answers[index] || []} // ✅ always array
-          setAnswers={setAnswers}
-          submitted={submitted}
-        />
+        {data.length > 0 ? (
+          <QuestionCard
+            q={data[index]}
+            index={index}
+            selected={answers[index] || []} // ✅ always array
+            setAnswers={setAnswers}
+            submitted={submitted}
+          />
+        ) : (
+          <div className="p-8 text-center text-white">
+            No questions available for this quiz. Please go back and select a
+            valid week or quiz type.
+          </div>
+        )}
         <div className="flex justify-between mt-8">
           <button
             disabled={index === 0}

@@ -2195,3 +2195,101 @@ hci[11] = [
     answer: [0],
   },
 ];
+
+hci[12] = [
+  {
+    q: "Shannon’s Level C focuses on:",
+    options: [
+      "Whether the received meaning achieves the intended effect",
+      "Hardware choices",
+      "Signal compression",
+      "Gesture selection",
+    ],
+    answer: [0],
+  },
+  {
+    q: "In human communication, encoding means:",
+    options: [
+      "Choosing fonts",
+      "Converting thoughts into words or symbols",
+      "Measuring noise levels",
+      "Compressing audio",
+    ],
+    answer: [1],
+  },
+  {
+    q: "A key feature of modern conversational AI is:",
+    options: [
+      "Natural Language Understanding",
+      "Monochrome output",
+      "Manual rule-writing",
+      "Offline-only processing",
+    ],
+    answer: [0],
+  },
+  {
+    q: "An example of a conversational AI assistant is:",
+    options: ["A calculator", "A stapler", "Google Assistant", "A desk lamp"],
+    answer: [2],
+  },
+  {
+    q: "A communication barrier includes:",
+    options: [
+      "Wallpapers",
+      "Volume changes",
+      "Extra brightness",
+      "Semantic misunderstandings",
+    ],
+    answer: [3],
+  },
+  {
+    q: "AI conversational systems typically:",
+    options: [
+      "Only record audio",
+      "Use NLP to interpret user messages",
+      "Require physical switches",
+      "Ignore user queries",
+    ],
+    answer: [1],
+  },
+  {
+    q: "A challenge in deploying conversational AI is:",
+    options: [
+      "Bias and misunderstanding nuanced input",
+      "Limited font choices",
+      "Keyboard shortcuts",
+      "Battery drainage",
+    ],
+    answer: [0],
+  },
+  {
+    q: "Asimov’s First Law states:",
+    options: [
+      "Robots must obey all commands",
+      "Robots must protect themselves",
+      "Robots may not harm humans or allow harm",
+      "Robots must avoid emotions",
+    ],
+    answer: [2],
+  },
+  {
+    q: "Socially responsible MIAs aim to:",
+    options: [
+      "Compress images",
+      "Promote fairness and inclusive interactions",
+      "Reduce accessibility",
+      "Avoid cultural sensitivity",
+    ],
+    answer: [1],
+  },
+  {
+    q: "A benefit of conversational AI in healthcare is:",
+    options: [
+      "Changing screen colors",
+      "Increasing room volume",
+      "Printing receipts",
+      "Offering virtual guidance such as symptom checking",
+    ],
+    answer: [3],
+  },
+];
