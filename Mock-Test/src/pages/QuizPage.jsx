@@ -127,15 +127,15 @@ export default function QuizPage() {
               key={i}
               onClick={() => setIndex(i)} // jump to question
               className={`w-12 h-12 flex items-center justify-center rounded-full cursor-pointer text-white font-bold shadow-lg hover:scale-110 transition-all duration-200
-          ${isAnswered ? "bg-green-500 hover:bg-green-600" : "bg-slate-600 hover:bg-slate-500"}
-          ${index === i ? "ring-4 ring-purple-400 scale-110" : ""}`}
+          ${isAnswered ? "bg-green-500 hover:bg-green-600" : "bg-purple-600 hover:bg-purple-500"}
+          ${index === i ? "ring-4 ring-cyan-400 scale-110" : ""}`}
             >
               {i + 1}
             </div>
           );
         })}
       </div>
-      <div className="p-6 bg-slate-800 rounded-2xl flex flex-col">
+      <div className="p-6 bg-purple-800/50 rounded-2xl flex flex-col">
         {/* QUESTION */}
         {data.length > 0 ? (
           <QuestionCard
@@ -144,6 +144,7 @@ export default function QuizPage() {
             selected={answers[index] || []} // ✅ always array
             setAnswers={setAnswers}
             submitted={submitted}
+            week={week}
           />
         ) : (
           <div className="p-8 text-center text-white">
@@ -155,7 +156,7 @@ export default function QuizPage() {
           <button
             disabled={index === 0}
             onClick={() => setIndex(index - 1)}
-            className="bg-slate-600 hover:bg-slate-700 disabled:bg-slate-800 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200"
+            className="bg-blue-700 hover:bg-blue-800 disabled:bg-blue-900 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200"
           >
             ← Previous
           </button>
@@ -170,7 +171,7 @@ export default function QuizPage() {
           ) : (
             <button
               onClick={() => setIndex(index + 1)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
             >
               Next →
             </button>
@@ -186,11 +187,11 @@ export default function QuizPage() {
 
         {/* RESULT */}
         {submitted && (
-          <div className="mt-6 bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-slate-700">
+          <div className="mt-6 bg-blue-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-blue-700">
             <h2 className="text-2xl font-bold text-center text-white mb-4">
               🎉 Score: {score} / {data.length}
             </h2>
-            <p className="text-center text-slate-300 mb-6">
+            <p className="text-center text-blue-200 mb-6">
               {score === data.length
                 ? "Perfect! 🏆"
                 : score >= data.length * 0.7
@@ -206,20 +207,20 @@ export default function QuizPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button
                   onClick={() => nav("/subject/blockchain")}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                  className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   🔗 Blockchain Quiz
                 </button>
                 <button
-                  onClick={() => nav("/subject/hci")}
-                  className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                  onClick={() => nav("/blockchain-notes")}
+                  className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  🧠 HCI Quiz
+                  📚 Blockchain Notes
                 </button>
               </div>
               <button
                 onClick={() => nav("/")}
-                className="w-full bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
+                className="w-full bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
               >
                 🏠 Back to Home
               </button>

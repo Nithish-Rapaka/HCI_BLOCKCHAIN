@@ -13,6 +13,8 @@ blockchain[1] = [
       "Cryptographic hash ensures that the blockchain data cannot be read by anyone outside the network.",
     ],
     answer: [1],
+    explanation:
+      "SHA-256 (Secure Hash Algorithm 256-bit) is THE foundation of blockchain security. It takes any input and produces a fixed 256-bit (64 hex character) output. Blockchain uses it because: 1) Same input always produces same output (deterministic), 2) Different inputs produce completely different outputs (avalanche effect), 3) Finding two inputs with same hash is computationally impossible (collision resistant). This makes blockchain tamper-evident - any change to data changes its hash immediately.",
   },
   {
     q: 'Consider the following input string: "Hello World". You apply SHA-256 to this string. Then, you change the input to "Hello World!" (added an exclamation mark) and apply SHA-256 again. Which statement describes the relationship between the two output hashes?',
@@ -23,11 +25,15 @@ blockchain[1] = [
       "The second hash will be exactly 8 bits longer than the first.",
     ],
     answer: [2],
+    explanation:
+      "This demonstrates the AVALANCHE EFFECT - a critical property of cryptographic hash functions. Adding just one character completely changes the output hash. The two 256-bit hashes share no correlation whatsoever. This property is crucial for blockchain: even a tiny tampering attempt is instantly detectable because the hash changes drastically, breaking the chain of blocks.",
   },
   {
     q: "A blockchain network uses SHA-256 for its hashing process. If it takes 10⁻⁶ seconds to compute a single SHA-256 hash, how long would it take (approximately) to compute 2¹²⁸ hashes for a collision attack?",
     options: ["10¹⁰ years", "10¹⁵ years", "10²⁰ years", "10²⁵ years"],
     answer: [3],
+    explanation:
+      "Computing 2¹²⁸ hashes at 10⁻⁶ seconds each: 2¹²⁸ × 10⁻⁶ ≈ 3.4 × 10³⁸ × 10⁻⁶ = 3.4 × 10³² seconds ≈ 10²⁵ years. For context, the universe is only ~1.4 × 10¹⁰ years old. This computational infeasibility is WHY blockchain is secure - brute-force attacks are physically impossible with current technology, making blockchain transactions irreversible in practice.",
   },
   {
     q: "In a decentralized distributed system with 100 participants, which of the following statements is true regarding trust and communication?",
@@ -38,11 +44,15 @@ blockchain[1] = [
       "All the 100 participants must trust each other.",
     ],
     answer: [2],
+    explanation:
+      "This is the KEY ADVANTAGE of blockchain. Instead of requiring participants to trust each other, blockchain uses CRYPTOGRAPHY + CONSENSUS to create trust. Participants don't need to know each other; they verify data mathematically. Digital signatures prove authenticity, hashes detect tampering, and consensus protocols ensure agreement. This 'trustless' design is revolutionary - it enables strangers to transact securely without intermediaries.",
   },
   {
     q: "A blockchain network achieves an average block generation time of 5 minutes under normal conditions. However, due to scheduled maintenance, the network's hash rate is reduced by 50% for 4 hours daily. If the network operates for 12 hours in total (including the maintenance period), how many blocks will be added to the blockchain?",
     options: ["120", "200", "216", "240"],
     answer: [0],
+    explanation:
+      "Calculation: Normal operation (8 hours): 8 × 60 / 5 = 96 blocks. Maintenance period (4 hours): 4 × 60 × 0.5 / 5 = 24 blocks. Total: 96 + 24 = 120 blocks. However, real blockchains like Bitcoin have DIFFICULTY ADJUSTMENT - they automatically adjust difficulty to maintain fixed block time despite changing hash rates. So Bitcoin always aims for ~10 minutes regardless of mining power changes.",
   },
   {
     q: "Where are the transaction logs stored in a blockchain network?",
@@ -53,11 +63,15 @@ blockchain[1] = [
       "In the distributed ledger of each peer across the network.",
     ],
     answer: [3],
+    explanation:
+      "DISTRIBUTED LEDGER is the definition of blockchain. Every node (peer) maintains a complete copy of the entire transaction history. This redundancy provides security: attacking one node is useless because others have identical copies. It enables resilience: if nodes go offline, others keep the network running. The cost is storage (every node stores everything), but this decentralization provides censorship resistance and reliability.",
   },
   {
     q: "An attacker wants to find a collision in a cryptographic hash function with a 128-bit output. What is the approximate number of hash operations required to succeed?",
     options: ["2⁶⁴", "2²⁵⁶", "2¹²⁸", "0.5×2¹²⁸"],
     answer: [0],
+    explanation:
+      "This relies on the BIRTHDAY PARADOX. For an n-bit hash, the probability of collision reaches 50% after ~2^(n/2) attempts. For 128-bit hashes: 2^(128/2) = 2⁶⁴ ≈ 1.8 × 10¹⁹ attempts. This is why 256-bit hashes (requiring ~2¹²⁸ attempts) are used in blockchain - they're more collision-resistant. Even 2⁶⁴ attempts would take centuries with current computers, so cryptographic hash functions are effectively collision-proof.",
   },
   {
     q: "Which of the following statements accurately describes a blockchain?",
@@ -68,6 +82,8 @@ blockchain[1] = [
       "A network that uses a single user to control access and updates to the data.",
     ],
     answer: [1],
+    explanation:
+      "KEY CHARACTERISTICS of blockchain: 1) DISTRIBUTED - multiple nodes store data (not centralized), 2) IMMUTABLE - data cannot be changed once recorded (cryptographic protection), 3) APPEND-ONLY - new data is added chronologically, 4) TRANSPARENT - all transactions are visible to participants, 5) CONSENSUS-BASED - network agrees on data validity. These properties make blockchain useful for scenarios requiring permanent, unchangeable records.",
   },
   {
     q: "A centralized database processes transactions at 10,000 TPS (Transactions Per Second). You decide to move this system to a decentralized blockchain to increase trust. Which of the following is the most likely outcome regarding performance and control?",
@@ -78,6 +94,8 @@ blockchain[1] = [
       "Throughput increases, and data becomes encrypted.",
     ],
     answer: [1],
+    explanation:
+      "THE BLOCKCHAIN TRILEMMA: You cannot maximize security, scalability, and decentralization simultaneously. Bitcoin: ~7 TPS, Ethereum: ~30 TPS vs Centralized DB: ~10,000 TPS. Why? Because every node must validate every transaction and reach consensus, creating bottlenecks. However, you GAIN: immutability, censorship resistance, transparency. It's a deliberate trade-off - sacrificing performance for security and decentralization.",
   },
   {
     q: "Which of the following describes the avalanche effect in a cryptographic hash function?",
@@ -88,6 +106,8 @@ blockchain[1] = [
       "The hash function always returns the same hash for the same input.",
     ],
     answer: [2],
+    explanation:
+      "AVALANCHE EFFECT is the property where even a 1-bit change in input produces a completely different hash output. Statistically, ~50% of output bits flip. This is ESSENTIAL for blockchain security: if someone tampers with a transaction (changing even 1 byte), the block's hash changes completely, breaking the cryptographic link to the next block. This makes tampering immediately detectable and the entire blockchain integrity fails if you try to alter history.",
   },
 ];
 
@@ -2291,5 +2311,256 @@ hci[12] = [
       "Offering virtual guidance such as symptom checking",
     ],
     answer: [3],
+  },
+];
+
+blockchain[12] = [
+  {
+    q: "Which of the following is a suitable use case for a blockchain-based solution in real-world systems?",
+    options: [
+      "Storing high-frequency sensor data that requires rapid deletion and modification",
+      "Creating a transparent and tamper-evident supply-chain tracking system for goods",
+      "Running a machine learning model training directly on a public blockchain",
+      "Hosting large video files for a global streaming platform",
+    ],
+    answer: [1],
+  },
+  {
+    q: "In interbank settlements, what issue does Project Ubin Phase 2 try to solve using decentralized multilateral netting?",
+    options: [
+      "Preventing double-spending of digital currencies",
+      "Verifying identities between banks",
+      "Solving gridlock situations where banks lack liquidity for individual payments but are overall solvent",
+      "Stopping unauthorized access to central bank accounts",
+    ],
+    answer: [2],
+  },
+  {
+    q: "The Stellar Consensus Protocol (SCP) uses federated voting. Which of the following are the key steps involved?",
+    options: ["Propose", "Vote", "Accept", "Prepare", "Confirm"],
+    answer: [1, 2, 4], // b, c, e
+  },
+  {
+    q: "According to research by Amores-Sesar et al., what level of overlap in trusted nodes (UNL overlap) is now recommended for safety in the Ripple network?",
+    options: ["20%", "40%", "80%", "Over 90%"],
+    answer: [3],
+  },
+  {
+    q: "In the CollabFed decentralized marketplace model, how is a request from a public blockchain verified and transferred to a private consortium ledger?",
+    options: [
+      "Through a central broker API",
+      "Using SPV (Simplified Payment Verification) plus approval from two-thirds of service providers",
+      "By running Proof of Work on the private ledger",
+      "By encrypting it with a shared private key",
+    ],
+    answer: [1],
+  },
+  {
+    q: "Why is it better to use a blockchain-based access log for sensitive government data instead of duplicating the data itself?",
+    options: [
+      "It speeds up access to large files",
+      "It allows deletion of stored data",
+      "It minimizes breach risks while keeping a transparent record of access",
+      "It removes the need for centralized storage",
+    ],
+    answer: [2],
+  },
+  {
+    q: "How does CollabFed combine multiple service provider signatures into a single response for users?",
+    options: [
+      "Schnorr multi-signatures",
+      "CoSi (Collective Signing) using BLS signatures",
+      "Ring signatures",
+      "HMAC",
+    ],
+    answer: [1],
+  },
+  {
+    q: "What was the main goal of Project Ubin Phase 3 (Delivery versus Payment)?",
+    options: [
+      "Automating GST collection",
+      "Enabling atomic exchange of cash and securities across different systems",
+      "Supporting cross-border payments",
+      "Building a retail payment interface",
+    ],
+    answer: [1],
+  },
+  {
+    q: "What performance characteristics were observed for the Stellar network?",
+    options: [
+      "Transaction throughput of approximately 350 TPS",
+      "Transaction finality/latency of approximately 1 second",
+      "Energy consumption comparable to Bitcoin mining",
+      "Confirmation times ranging between 3 to 5 minutes",
+    ],
+    answer: [0, 1], // multi
+  },
+  {
+    q: "In decentralized marketplaces without platforms like Booking.com, what major challenge still remains?",
+    options: [
+      "Difficulty ordering transactions",
+      "Lack of quick authority for real-time dispute resolution",
+      "Poor blockchain interoperability",
+      "High smart contract costs",
+    ],
+    answer: [1],
+  },
+];
+
+// ================= BLOCKCHAIN - MULTI ANSWER QUESTIONS =================
+
+export const blockchainMultiAnswer = [
+  {
+    week: 4,
+    q: "Suppose a miner initially receives 100 bitcoins as a reward for successfully mining a block at time Jan, 2009. The reward for mining a block is halved approximately every four years (or after every 210,000 blocks). Based on this halving process, which of the following statements are correct?",
+    options: [
+      "In Jan 2013, the miner will receive 50 bitcoins for adding a new block.",
+      "In Jan 2018, the miner will receive 25 bitcoins for adding a new block.",
+      "In Jan 2021, the miner will receive 12.5 bitcoins for adding a new block.",
+      "In Jan 2024, the miner will receive 6.25 bitcoins for adding a new block.",
+    ],
+    correctAnswers: [0, 1, 2],
+    explanations: {
+      0: "The first halving occurred in Nov 2012, so by Jan 2013, the block reward became 50 BTC (100 � 2 = 50). This is correct.",
+      1: "The second halving occurred in July 2016, so by Jan 2018, the block reward became 25 BTC (50 � 2 = 25). This is correct.",
+      2: "The third halving occurred in May 2020, so by Jan 2021, the block reward became 12.5 BTC (25 � 2 = 12.5). This is correct.",
+      3: "The fourth halving occurred in May 2024, so by Jan 2024 (before the halving), miners still received 12.5 BTC, not 6.25 BTC. The 6.25 BTC reward started after May 2024.",
+    },
+  },
+  {
+    week: 5,
+    q: "Which of the following factors generally limit the scalability of permissionless blockchain consensus mechanisms?",
+    options: [
+      "Requirement for a global agreement among nodes",
+      "Centralized validator selection",
+      "High communication and computation overhead",
+      "Absence of cryptographic security",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "Permissionless blockchains require consensus among all nodes, which requires extensive communication and coordination. This creates a fundamental bottleneck as the network grows, limiting throughput and scalability.",
+      1: "Permissionless blockchains are designed to be decentralized with open validator selection, not centralized. This is a misconception.",
+      2: "PoW and PoS mechanisms involve significant computational and communication overhead. Each node must validate transactions, communicate with peers, and coordinate consensus. These operations don't scale linearly with network size, creating a major scalability limitation.",
+      3: "Permissionless blockchains rely heavily on cryptographic security. A lack of security would be a fundamental flaw, not a scalability factor.",
+    },
+  },
+  {
+    week: 6,
+    q: "Which of the following statements correctly describe safety and liveness in consensus protocols?",
+    options: [
+      "Safety ensures that conflicting decisions never occur",
+      "Liveness ensures that the system eventually makes progress",
+      "Safety may be temporarily violated under network delays",
+      "Liveness guarantees agreement under all possible network conditions",
+    ],
+    correctAnswers: [0, 1],
+    explanations: {
+      0: "Safety is a fundamental property that guarantees no two processes will make conflicting decisions. In blockchain, this ensures double-spending is impossible�once a transaction is confirmed, it cannot be reversed.",
+      1: "Liveness ensures the system continues to make progress and doesn't get stuck. In consensus protocols, liveness means transactions will eventually be confirmed and new blocks will be created.",
+      2: "Safety is a guarantee and should never be violated, even under network delays. If safety is violated, the consensus protocol has failed. Byzantine Fault Tolerant protocols maintain safety even under worst-case conditions.",
+      3: "Liveness does NOT guarantee agreement under all possible network conditions. There's a fundamental trade-off: strict liveness can be compromised to maintain safety during network partitions.",
+    },
+  },
+  {
+    week: 6,
+    q: "Which of the following properties are typically associated with permissioned blockchain systems?",
+    options: [
+      "Anonymous participation",
+      "Identity management through a trusted authority",
+      "Restricted transaction visibility to authorized participants",
+      "No requirement for consensus",
+    ],
+    correctAnswers: [1, 2],
+    explanations: {
+      0: "Permissioned blockchains require identity verification and authentication. Participants are NOT anonymous�their identities are verified by a central authority.",
+      1: "Permissioned blockchains rely on a trusted authority (like a consortium or organization) to manage member identities and assign roles. This is their defining characteristic compared to permissionless chains.",
+      2: "In permissioned systems, transaction visibility can be restricted to authorized participants. Different channels or access control lists can limit who sees what data�this provides privacy and confidentiality.",
+      3: "Permissioned blockchains still require consensus among authorized participants. Consensus is essential for maintaining consistency across the distributed ledger.",
+    },
+  },
+  {
+    week: 6,
+    q: "Which of the following characteristics distinguish Byzantine faults from crash faults?",
+    options: [
+      "Byzantine faults may cause a node to send conflicting information to different nodes",
+      "Crash faults allow a node to behave arbitrarily",
+      "Byzantine faults involve arbitrary or malicious behavior",
+      "Crash faults require digital signatures to detect",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "Byzantine nodes can behave maliciously and send different messages to different nodes (equivocation), making the system harder to defend against. Crash faults don't exhibit this behavior.",
+      1: "This is backwards. Crash faults are simple stop failures. Byzantine faults allow arbitrary behavior. Crash-tolerant systems cannot handle Byzantine attacks.",
+      2: "Byzantine faults include any arbitrary or malicious behavior�sending false data, equivocation, collusion, etc. This is the core distinction from predictable crash faults.",
+      3: "Crash faults don't require signatures to detect. If a node stops responding, it's evidently crashed. Byzantine nodes hide their malicious behavior, which is why we need cryptographic signatures and voting mechanisms.",
+    },
+  },
+  {
+    week: 6,
+    q: "Which of the following statements about roles in Paxos are correct?",
+    options: [
+      "A single physical node can simultaneously perform the roles of Proposer, Acceptor, and Learner.",
+      "Roles are permanently fixed once assigned",
+      "Roles are dynamic and are not permanently tied to specific nodes.",
+      "Only one Acceptor is required to reach a consensus in a network of five nodes.",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "In practice, Paxos roles are logical roles, not physical assignments. A single server often acts as Proposer, Acceptor, and Learner simultaneously. This is how Multi-Paxos and real-world implementations work.",
+      1: "Roles in Paxos are NOT permanently fixed. They are dynamic and flexible, especially in Multi-Paxos where different nodes can take different roles across different proposals.",
+      2: "Roles are dynamic and assigned logically based on the protocol needs. The same node can be Proposer in one round and Acceptor in another. This flexibility is key to Paxos's efficiency.",
+      3: "For safety in Paxos with 5 nodes and tolerating f faults, you need a quorum of at least f+1 = 2 Acceptors at minimum in some configurations, but typically 3 or more are needed for practical safety and liveness.",
+    },
+  },
+  {
+    week: 7,
+    q: "Which of the following properties make PBFT suitable for enterprise blockchain environments?",
+    options: [
+      "Deterministic transaction finality",
+      "Anonymous validator participation",
+      "Tolerance to Byzantine faults",
+      "Dependence on computational mining",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "PBFT provides deterministic finality�once a block is committed, it's final and cannot be reverted. This is ideal for enterprises that need strong consistency guarantees.",
+      1: "PBFT requires known validators and identity authentication. Anonymous participation is not possible, which is why PBFT is used in permissioned systems, not public blockchains.",
+      2: "PBFT is designed to tolerate Byzantine faults�up to f malicious nodes in a network of 3f+1 nodes. This handles arbitrary malicious behavior, not just crashes.",
+      3: "PBFT doesn't depend on computational mining (PoW). It uses voting-based consensus among known validators, making it energy-efficient and suitable for enterprises.",
+    },
+  },
+  {
+    week: 7,
+    q: "Which of the following are advantages of blockchain in supply-chain systems?",
+    options: [
+      "Tamper-evident audit trail",
+      "Automatic deletion of transaction history",
+      "Improved transparency among participants",
+      "Removal of all governance requirements",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "Blockchain creates an immutable audit trail where every transaction is recorded and cryptographically linked. Any tampering is immediately detectable, providing accountability and trust.",
+      1: "Blockchain's core feature is immutability�data cannot be deleted. The 'automatic deletion' would defeat the purpose. Transaction history is permanently preserved for auditing.",
+      2: "Blockchain enables all supply-chain participants to view the transaction history transparently, improving trust and reducing fraud. Suppliers, shippers, and buyers can verify product authenticity and movement.",
+      3: "Blockchain still requires governance�rules about who can participate, what data is valid, and how disputes are resolved. Governance becomes decentralized but isn't eliminated.",
+    },
+  },
+  {
+    week: 7,
+    q: "Which of the following statements correctly describe permissioned blockchain systems?",
+    options: [
+      "Participants are authenticated before joining",
+      "All nodes remain anonymous",
+      "Access to transaction data may be restricted",
+      "Consensus mechanisms are unnecessary",
+    ],
+    correctAnswers: [0, 2],
+    explanations: {
+      0: "Permissioned systems require identity verification and authentication. New participants must be vetted by a trusted authority before joining the network.",
+      1: "Participants in permissioned systems are NOT anonymous. Each participant has a verified identity tied to a certificate or cryptographic key, enabling accountability and auditability.",
+      2: "Permissioned systems can restrict who sees which transactions. Different access control policies can limit transaction visibility to relevant participants only, ensuring privacy and confidentiality.",
+      3: "Permissioned systems still require consensus mechanisms. Examples include PBFT, PoA, and other protocols. Consensus ensures agreement on the ledger state and prevents unauthorized modifications.",
+    },
   },
 ];
