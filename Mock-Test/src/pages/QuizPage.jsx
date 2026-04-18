@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { blockchain, hci } from "../data/data.js";
 import { useState, useEffect, useRef, useMemo } from "react";
 import QuestionCard from "../components/QuestionCard";
-
+import Chatbot from "../components/Chatbot";
 export default function QuizPage() {
   const { state } = useLocation();
   const nav = useNavigate();
@@ -110,124 +110,128 @@ export default function QuizPage() {
 
   return (
     <>
-      <div className="mb-6 text-center">
-        <h1 className="text-3xl font-bold text-white mb-2">{quizLabel}</h1>
-        <p className="text-slate-300">
-          Answer the questions below and use Next to move forward.
-        </p>
-      </div>
-
-      {/* 🔥 QUESTION PALETTE */}
-      <div className="flex flex-wrap gap-3 mb-6 justify-center">
-        {data.map((_, i) => {
-          const isAnswered = answers[i] && answers[i].length > 0;
-
-          return (
-            <div
-              key={i}
-              onClick={() => setIndex(i)} // jump to question
-              className={`w-12 h-12 flex items-center justify-center rounded-full cursor-pointer text-white font-bold shadow-lg hover:scale-110 transition-all duration-200
-          ${isAnswered ? "bg-green-500 hover:bg-green-600" : "bg-purple-600 hover:bg-purple-500"}
-          ${index === i ? "ring-4 ring-cyan-400 scale-110" : ""}`}
-            >
-              {i + 1}
-            </div>
-          );
-        })}
-      </div>
-      <div className="p-6 bg-purple-800/50 rounded-2xl flex flex-col">
-        {/* QUESTION */}
-        {data.length > 0 ? (
-          <QuestionCard
-            q={data[index]}
-            index={index}
-            selected={answers[index] || []} // ✅ always array
-            setAnswers={setAnswers}
-            submitted={submitted}
-            week={week}
-          />
-        ) : (
-          <div className="p-8 text-center text-white">
-            No questions available for this quiz. Please go back and select a
-            valid week or quiz type.
-          </div>
-        )}
-        <div className="flex justify-between mt-8">
-          <button
-            disabled={index === 0}
-            onClick={() => setIndex(index - 1)}
-            className="bg-blue-700 hover:bg-blue-800 disabled:bg-blue-900 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200"
-          >
-            ← Previous
-          </button>
-
-          {index === data.length - 1 ? (
-            <button
-              onClick={handleSubmit}
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-200"
-            >
-              🎯 Submit Quiz
-            </button>
-          ) : (
-            <button
-              onClick={() => setIndex(index + 1)}
-              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
-            >
-              Next →
-            </button>
-          )}
+      <div className="pb-28">
+        <div className="mb-6 text-center">
+          <h1 className="text-3xl font-bold text-white mb-2">{quizLabel}</h1>
+          <p className="text-slate-300">
+            Answer the questions below and use Next to move forward.
+          </p>
         </div>
 
-        {/* QUESTION COUNT */}
-        <p className="text-center mt-4">
-          {index + 1} / {data.length}
-        </p>
+        {/* 🔥 QUESTION PALETTE */}
+        <div className="flex flex-wrap gap-3 mb-6 justify-center">
+          {data.map((_, i) => {
+            const isAnswered = answers[i] && answers[i].length > 0;
 
-        {/* 👀 VIEW COUNT */}
+            return (
+              <div
+                key={i}
+                onClick={() => setIndex(i)} // jump to question
+                className={`w-12 h-12 flex items-center justify-center rounded-full cursor-pointer text-white font-bold shadow-lg hover:scale-110 transition-all duration-200
+          ${isAnswered ? "bg-green-500 hover:bg-green-600" : "bg-purple-600 hover:bg-purple-500"}
+          ${index === i ? "ring-4 ring-cyan-400 scale-110" : ""}`}
+              >
+                {i + 1}
+              </div>
+            );
+          })}
+        </div>
+        <div className="p-6 bg-purple-800/50 rounded-2xl flex flex-col">
+          {/* QUESTION */}
+          {data.length > 0 ? (
+            <QuestionCard
+              q={data[index]}
+              index={index}
+              selected={answers[index] || []} // ✅ always array
+              setAnswers={setAnswers}
+              submitted={submitted}
+              week={week}
+            />
+          ) : (
+            <div className="p-8 text-center text-white">
+              No questions available for this quiz. Please go back and select a
+              valid week or quiz type.
+            </div>
+          )}
+          <div className="flex justify-between mt-8">
+            <button
+              disabled={index === 0}
+              onClick={() => setIndex(index - 1)}
+              className="bg-blue-700 hover:bg-blue-800 disabled:bg-blue-900 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200"
+            >
+              ← Previous
+            </button>
 
-        {/* RESULT */}
-        {submitted && (
-          <div className="mt-6 bg-blue-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-blue-700">
-            <h2 className="text-2xl font-bold text-center text-white mb-4">
-              🎉 Score: {score} / {data.length}
-            </h2>
-            <p className="text-center text-blue-200 mb-6">
-              {score === data.length
-                ? "Perfect! 🏆"
-                : score >= data.length * 0.7
-                  ? "Great job! 👏"
-                  : "Keep practicing! 💪"}
-            </p>
+            {index === data.length - 1 ? (
+              <button
+                onClick={handleSubmit}
+                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                🎯 Submit Quiz
+              </button>
+            ) : (
+              <button
+                onClick={() => setIndex(index + 1)}
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                Next →
+              </button>
+            )}
+          </div>
 
-            {/* NEXT QUIZ OPTIONS */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-center text-white mb-4">
-                Ready for another quiz?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* QUESTION COUNT */}
+          <p className="text-center mt-4">
+            {index + 1} / {data.length}
+          </p>
+
+          {/* 👀 VIEW COUNT */}
+
+          {/* RESULT */}
+          {submitted && (
+            <div className="mt-6 bg-blue-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-blue-700">
+              <h2 className="text-2xl font-bold text-center text-white mb-4">
+                🎉 Score: {score} / {data.length}
+              </h2>
+              <p className="text-center text-blue-200 mb-6">
+                {score === data.length
+                  ? "Perfect! 🏆"
+                  : score >= data.length * 0.7
+                    ? "Great job! 👏"
+                    : "Keep practicing! 💪"}
+              </p>
+
+              {/* NEXT QUIZ OPTIONS */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-center text-white mb-4">
+                  Ready for another quiz?
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <button
+                    onClick={() => nav("/subject/blockchain")}
+                    className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    🔗 Blockchain Quiz
+                  </button>
+                  <button
+                    onClick={() => nav("/blockchain-notes")}
+                    className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    📚 Blockchain Notes
+                  </button>
+                </div>
                 <button
-                  onClick={() => nav("/subject/blockchain")}
-                  className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
+                  onClick={() => nav("/")}
+                  className="w-full bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
                 >
-                  🔗 Blockchain Quiz
-                </button>
-                <button
-                  onClick={() => nav("/blockchain-notes")}
-                  className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
-                >
-                  📚 Blockchain Notes
+                  🏠 Back to Home
                 </button>
               </div>
-              <button
-                onClick={() => nav("/")}
-                className="w-full bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200"
-              >
-                🏠 Back to Home
-              </button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      {/* AI Chatbot */}
+      {data.length > 0 && <Chatbot question={data[index]?.q} />}
     </>
   );
 }

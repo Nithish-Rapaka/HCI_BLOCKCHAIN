@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { blockchainMultiAnswer } from "../data/data.js";
 import { useState } from "react";
 import { useTheme } from "../App";
+import Chatbot from "../components/Chatbot";
 
 export default function MultiAnswerPage() {
   const nav = useNavigate();
@@ -9,6 +10,7 @@ export default function MultiAnswerPage() {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submittedQuestions, setSubmittedQuestions] = useState({});
+  const [chatQuestion, setChatQuestion] = useState(null);
 
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -118,11 +120,22 @@ export default function MultiAnswerPage() {
                     >
                       {question.q}
                     </h3>
-                    <p className="text-blue-200 text-sm">
-                      {hasAnswered
-                        ? `${selectedAnswers[qIndex].length} option(s) selected`
-                        : "Select all correct answers"}
-                    </p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <p className="text-blue-200 text-sm">
+                        {hasAnswered
+                          ? `${selectedAnswers[qIndex].length} option(s) selected`
+                          : "Select all correct answers"}
+                      </p>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setChatQuestion(question.q);
+                        }}
+                        className="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition-colors"
+                      >
+                        💬 Ask AI
+                      </button>
+                    </div>
                   </div>
                   <div className="text-2xl text-blue-300">
                     {isExpanded ? "▼" : "▶"}
@@ -316,6 +329,14 @@ export default function MultiAnswerPage() {
           </button>
         </div>
       </div>
+
+      {/* AI Chatbot */}
+      {chatQuestion && (
+        <Chatbot
+          question={chatQuestion}
+          onClose={() => setChatQuestion(null)}
+        />
+      )}
     </div>
   );
 }

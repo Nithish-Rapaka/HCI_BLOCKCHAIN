@@ -12,7 +12,7 @@ export default function Footer() {
       }`}
     >
       Designed & Developed with ❤️ by{" "}
-      <span className="font-semibold text-cyan-400">Blockchain Academy</span>
+      <span className="font-semibold text-cyan-400">IT-B Boys</span>
     </footer>
   );
 }
